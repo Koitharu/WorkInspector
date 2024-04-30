@@ -47,6 +47,11 @@ internal class WorkersListFragment : Fragment(R.layout.fragment_work_list), OnWo
         super.onDestroyView()
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.setTitle(R.string.lib_name)
+    }
+
     override fun onWorkerClick(
         view: View,
         worker: WorkerInfo,

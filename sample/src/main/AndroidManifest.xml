@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,18 @@
             </intent-filter>
 
         </activity-alias>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
+
+
+        <provider
+            android:name=".SampleInitProvider"
+            android:authorities="${applicationId}.WORK_TEST"
+            android:exported="false"
+            android:initOrder="0" />
 
     </application>
 

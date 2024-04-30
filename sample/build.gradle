@@ -32,4 +32,6 @@ android {
 
 dependencies {
     implementation project(':workinspector')
+
+    implementation libs.work
 }

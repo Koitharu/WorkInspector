@@ -43,6 +43,12 @@ internal class WorkDetailsFragment : Fragment(R.layout.fragment_work_list) {
         super.onDestroyView()
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.title = arguments?.getString(ARG_WORKER_CLASS_NAME)?.substringAfterLast('.')
+            ?: getString(R.string.lib_name)
+    }
+
     companion object {
         const val ARG_WORKER_CLASS_NAME = "workerClassName"
     }

@@ -1,6 +1,7 @@
 package org.koitharu.workinspector.data.details.model
 
 import androidx.work.Data
+import androidx.work.NetworkType
 import androidx.work.WorkInfo
 
 internal data class WorkDetails(
@@ -15,10 +16,10 @@ internal data class WorkDetails(
     val lastEnqueueTime: Long,
     val scheduleRequestedAt: Long,
     val stopReason: Int,
-    val requiredNetworkType: Int,
+    val requiredNetworkType: NetworkType?,
     val requiresBatteryNotLow: Boolean,
     val requiresCharging: Boolean,
     val requiresDeviceIdle: Boolean,
     val requiresStorageNotLow: Boolean,
-    val tag: String?,
+    val tags: Set<String>,
 )

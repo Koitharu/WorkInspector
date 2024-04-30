@@ -1,8 +1,8 @@
 package org.koitharu.workinspector.data.details
 
-import androidx.core.database.getStringOrNull
 import androidx.room.withTransaction
 import androidx.work.Data
+import androidx.work.NetworkType
 import androidx.work.WorkInfo
 import androidx.work.impl.WorkDatabase
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +22,7 @@ internal class WorkerDetailsRepository(
     suspend fun getWorkDetails(workerClassName: String): List<WorkDetails> =
         db.withTransaction {
             db.openHelper.readableDatabase.query(
-                "SELECT id, state, input, output, initial_delay, interval_duration, flex_duration, run_attempt_count, last_enqueue_time, schedule_requested_at, stop_reason, required_network_type, requires_battery_not_low, requires_charging, requires_device_idle, requires_storage_not_low, tag FROM workspec LEFT JOIN worktag ON work_spec_id = id WHERE worker_class_name = ? ORDER BY last_enqueue_time DESC",
+                "SELECT id, state, input, output, initial_delay, interval_duration, flex_duration, run_attempt_count, last_enqueue_time, schedule_requested_at, stop_reason, required_network_type, requires_battery_not_low, requires_charging, requires_device_idle, requires_storage_not_low, (SELECT GROUP_CONCAT(tag) FROM $WORK_TAG WHERE work_spec_id = id) AS tags FROM $WORK_SPEC WHERE worker_class_name = ? ORDER BY last_enqueue_time DESC",
                 arrayOf(workerClassName),
             ).mapAndClose { cursor ->
                 WorkDetails(
@@ -37,12 +37,12 @@ internal class WorkerDetailsRepository(
                     lastEnqueueTime = cursor.getLong(8),
                     scheduleRequestedAt = cursor.getLong(9),
                     stopReason = cursor.getInt(10),
-                    requiredNetworkType = cursor.getInt(11),
+                    requiredNetworkType = NetworkType.entries.getOrNull(cursor.getInt(11)),
                     requiresBatteryNotLow = cursor.getBoolean(12),
                     requiresCharging = cursor.getBoolean(13),
                     requiresDeviceIdle = cursor.getBoolean(14),
                     requiresStorageNotLow = cursor.getBoolean(15),
-                    tag = cursor.getStringOrNull(16),
+                    tags = cursor.getString(16).split(',').toSet(),
                 )
             }
         }
