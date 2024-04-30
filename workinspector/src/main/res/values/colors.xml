@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="state_blocked">#FBC02D</color>
+    <color name="state_cancelled">#B1B1B1</color>
+    <color name="state_failed">#D32F2F</color>
+    <color name="state_queued">#512DA8</color>
+    <color name="state_running">#0288D1</color>
+    <color name="state_succeeded">#388E3C</color>
+    <color name="state_unknown">#545454</color>
+</resources>

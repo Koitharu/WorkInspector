@@ -1,0 +1,37 @@
+[versions]
+agp = "8.3.2"
+ksp = "1.9.23-1.0.20"
+kotlin = "1.9.23"
+coroutines = "1.8.0"
+core_ktx = "1.13.0"
+appcompat = "1.6.1"
+material = "1.11.0"
+activity = "1.9.0"
+constraintlayout = "2.1.4"
+room = "2.6.1"
+work = "2.9.0"
+koin = "3.5.6"
+koin_ksp = "1.3.1"
+
+[libraries]
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core_ktx" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+room = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room_compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+work = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-coroutines = { module = "io.insert-koin:koin-core-coroutines" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin_ksp" }
+koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin_ksp" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
