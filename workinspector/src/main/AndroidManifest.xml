@@ -11,7 +11,7 @@
 
         <provider
             android:name=".WorkInspectorInitProvider"
-            android:authorities="org.koitharu.workinspector.INIT"
+            android:authorities="${applicationId}.WORKINSPECTOR_INIT"
             android:enabled="true"
             android:exported="false" />
     </application>
