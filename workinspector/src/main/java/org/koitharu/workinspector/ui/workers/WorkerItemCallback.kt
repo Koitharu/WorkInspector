@@ -7,14 +7,10 @@ internal class WorkerItemCallback : DiffUtil.ItemCallback<WorkerInfo>() {
     override fun areItemsTheSame(
         oldItem: WorkerInfo,
         newItem: WorkerInfo,
-    ): Boolean {
-        TODO("Not yet implemented")
-    }
+    ): Boolean = oldItem.workerClassName == newItem.workerClassName
 
     override fun areContentsTheSame(
         oldItem: WorkerInfo,
         newItem: WorkerInfo,
-    ): Boolean {
-        TODO("Not yet implemented")
-    }
+    ): Boolean = oldItem == newItem
 }

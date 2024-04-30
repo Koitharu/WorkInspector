@@ -3,4 +3,11 @@
     <string name="lib_name" translatable="false">WorkInspector</string>
     <string name="no_workers_found">No workers found</string>
     <string name="error_generic">An error has occurred</string>
+    <string name="state_queued">Queued</string>
+    <string name="state_running">Running</string>
+    <string name="state_succeeded">Succeeded</string>
+    <string name="state_failed">Failed</string>
+    <string name="state_blocked">Blocked</string>
+    <string name="state_cancelled">Cancelled</string>
+    <string name="state_unknown">Unknown</string>
 </resources>

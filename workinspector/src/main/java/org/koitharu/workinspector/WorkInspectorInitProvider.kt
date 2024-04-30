@@ -4,6 +4,7 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
+import androidx.work.impl.WorkDatabase
 import androidx.work.impl.WorkManagerImpl
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -51,6 +52,7 @@ public class WorkInspectorInitProvider : ContentProvider() {
 
     private fun coreModule() =
         module {
-            factory { WorkManagerImpl.getInstance(androidContext()) }
+            factory<WorkManagerImpl> { WorkManagerImpl.getInstance(androidContext()) }
+            factory<WorkDatabase> { get<WorkManagerImpl>().workDatabase }
         }
 }

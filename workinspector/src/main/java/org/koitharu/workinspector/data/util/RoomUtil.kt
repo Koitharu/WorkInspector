@@ -43,3 +43,5 @@ internal inline fun <T> Cursor.mapAndClose(mapper: (Cursor) -> T): List<T> =
         }
         result
     }
+
+internal fun Cursor.getBoolean(columnIndex: Int) = getInt(columnIndex) != 0

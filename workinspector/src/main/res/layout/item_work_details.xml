@@ -14,20 +14,17 @@
         android:paddingBottom="@dimen/offset_default">
 
         <TextView
-            android:id="@+id/textView_name"
+            android:id="@+id/textView_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/offset_default"
             android:layout_marginTop="@dimen/offset_default"
-            android:drawablePadding="@dimen/offset_mini"
-            android:gravity="center_vertical"
             android:singleLine="true"
             android:textAppearance="?textAppearanceTitleMedium"
             app:layout_constraintEnd_toStartOf="@id/imageView_status"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:drawableStart="@drawable/ic_repeat"
             tools:text="suggestions" />
 
         <ImageView
@@ -42,20 +39,6 @@
             tools:src="@drawable/ic_state_running" />
 
         <TextView
-            android:id="@+id/textView_class"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/offset_default"
-            android:layout_marginTop="@dimen/offset_smaller"
-            android:ellipsize="middle"
-            android:singleLine="true"
-            android:textAppearance="?textAppearanceBodyMedium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_name"
-            tools:text="org.koitharu.kotatsu.suggestions.ui.SuggestionsWorker" />
-
-        <TextView
             android:id="@+id/textView_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +48,7 @@
             android:textAppearance="?textAppearanceOverline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_class"
+            app:layout_constraintTop_toBottomOf="@id/textView_status"
             tools:text="8da23b3f-f4c9-4b36-aacf-1effe9011fe9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
