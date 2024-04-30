@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koitharu.workinspector.R
 import org.koitharu.workinspector.data.workers.model.WorkerInfo
@@ -27,6 +28,13 @@ internal class WorkersListFragment : Fragment(R.layout.fragment_work_list), OnWo
         viewModel.workers.collectInLifecycle(viewLifecycleOwner) {
             listAdapter.submitList(it)
             binding?.textViewHolder?.isVisible = it.isEmpty()
+        }
+        viewModel.onError.collectInLifecycle(viewLifecycleOwner) { e ->
+            Snackbar.make(
+                requireView(),
+                e.message ?: getString(R.string.error_generic),
+                Snackbar.LENGTH_SHORT,
+            ).show()
         }
     }
 

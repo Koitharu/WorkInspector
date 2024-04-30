@@ -2,4 +2,5 @@
 <resources>
     <string name="lib_name" translatable="false">WorkInspector</string>
     <string name="no_workers_found">No workers found</string>
+    <string name="error_generic">An error has occurred</string>
 </resources>
