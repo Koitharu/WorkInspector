@@ -2,8 +2,8 @@ package org.koitharu.workinspector.ui.details
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import org.koitharu.kotatsu.core.ui.widgets.ChipsView.ChipModel
 import org.koitharu.workinspector.ui.WorkConstraint
+import org.koitharu.workinspector.ui.util.ChipsView.ChipModel
 
 internal data class WorkDetailsItem(
     val id: String,

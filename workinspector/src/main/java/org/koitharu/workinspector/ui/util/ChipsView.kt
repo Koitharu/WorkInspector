@@ -1,8 +1,9 @@
-package org.koitharu.kotatsu.core.ui.widgets
+package org.koitharu.workinspector.ui.util
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.annotation.DrawableRes
+import com.google.android.material.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
 import com.google.android.material.chip.ChipGroup
@@ -12,11 +13,11 @@ internal class ChipsView
     constructor(
         context: Context,
         attrs: AttributeSet? = null,
-        defStyleAttr: Int = com.google.android.material.R.attr.chipGroupStyle,
+        defStyleAttr: Int = R.attr.chipGroupStyle,
     ) : ChipGroup(context, attrs, defStyleAttr) {
         private var isLayoutSuppressedCompat = false
         private var isLayoutCalledOnSuppressed = false
-        private val chipStyle = com.google.android.material.R.style.Widget_Material3_Chip_Assist
+        private val chipStyle = R.style.Widget_Material3_Chip_Assist
 
         init {
             if (isInEditMode) {

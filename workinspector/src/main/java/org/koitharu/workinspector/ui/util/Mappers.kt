@@ -27,7 +27,6 @@ import androidx.work.WorkInfo.Companion.STOP_REASON_SYSTEM_PROCESSING
 import androidx.work.WorkInfo.Companion.STOP_REASON_TIMEOUT
 import androidx.work.WorkInfo.Companion.STOP_REASON_UNKNOWN
 import androidx.work.WorkInfo.Companion.STOP_REASON_USER
-import org.koitharu.kotatsu.core.ui.widgets.ChipsView
 import org.koitharu.workinspector.R
 import org.koitharu.workinspector.data.details.model.WorkDetails
 import org.koitharu.workinspector.data.workers.model.WorkerInfo
