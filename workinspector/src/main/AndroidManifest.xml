@@ -6,7 +6,7 @@
         <activity
             android:name=".WorkInspectorActivity"
             android:exported="true"
-            android:label="@string/lib_name"
+            android:label="@string/wi_lib_name"
             android:theme="@style/Theme.WorkInspector" />
 
         <provider

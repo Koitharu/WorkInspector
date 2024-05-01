@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import kotlinx.coroutines.flow.FlowCollector
-import org.koitharu.workinspector.databinding.ItemWorkDetailsBinding
+import org.koitharu.workinspector.databinding.WiItemWorkDetailsBinding
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -21,7 +21,7 @@ internal class WorkDetailsAdapter :
         parent: ViewGroup,
         viewType: Int,
     ) = WorkDetailsHolder(
-        ItemWorkDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+        WiItemWorkDetailsBinding.inflate(LayoutInflater.from(parent.context), parent, false),
     )
 
     override fun onBindViewHolder(

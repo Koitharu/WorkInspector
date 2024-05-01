@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="state_blocked">#FFF176</color>
-    <color name="state_cancelled">#D5D5D5</color>
-    <color name="state_failed">#E57373</color>
-    <color name="state_queued">#9575CD</color>
-    <color name="state_running">#4FC3F7</color>
-    <color name="state_succeeded">#81C784</color>
-    <color name="state_unknown">#EDEDED</color>
+    <color name="wi_state_blocked">#FFF176</color>
+    <color name="wi_state_cancelled">#D5D5D5</color>
+    <color name="wi_state_failed">#E57373</color>
+    <color name="wi_state_queued">#9575CD</color>
+    <color name="wi_state_running">#4FC3F7</color>
+    <color name="wi_state_succeeded">#81C784</color>
+    <color name="wi_state_unknown">#EDEDED</color>
 </resources>

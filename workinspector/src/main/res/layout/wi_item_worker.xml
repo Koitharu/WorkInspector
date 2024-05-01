@@ -5,21 +5,21 @@
     style="?materialCardViewFilledStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/offset_default"
-    android:layout_marginVertical="@dimen/offset_small">
+    android:layout_marginHorizontal="@dimen/wi_offset_default"
+    android:layout_marginVertical="@dimen/wi_offset_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/offset_default">
+        android:paddingBottom="@dimen/wi_offset_default">
 
         <TextView
             android:id="@+id/textView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/offset_default"
-            android:layout_marginTop="@dimen/offset_default"
-            android:drawablePadding="@dimen/offset_mini"
+            android:layout_marginHorizontal="@dimen/wi_offset_default"
+            android:layout_marginTop="@dimen/wi_offset_default"
+            android:drawablePadding="@dimen/wi_offset_mini"
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textAppearance="?textAppearanceTitleMedium"
@@ -27,26 +27,26 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:drawableStart="@drawable/ic_repeat"
+            tools:drawableStart="@drawable/wi_ic_repeat"
             tools:text="suggestions" />
 
         <ImageView
             android:id="@+id/imageView_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/offset_default"
-            android:layout_marginEnd="@dimen/offset_default"
+            android:layout_marginTop="@dimen/wi_offset_default"
+            android:layout_marginEnd="@dimen/wi_offset_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:src="@drawable/ic_state_running" />
+            tools:src="@drawable/wi_ic_state_running" />
 
         <TextView
             android:id="@+id/textView_class"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/offset_default"
-            android:layout_marginTop="@dimen/offset_smaller"
+            android:layout_marginHorizontal="@dimen/wi_offset_default"
+            android:layout_marginTop="@dimen/wi_offset_smaller"
             android:ellipsize="middle"
             android:singleLine="true"
             android:textAppearance="?textAppearanceBodyMedium"
@@ -59,49 +59,49 @@
             android:id="@+id/imageView_constraint_network"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_network"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_network"
+            app:tint="@color/wi_constraint_item" />
 
         <ImageView
             android:id="@+id/imageView_constraint_network_unmetered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_network_unmetered"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_network_unmetered"
+            app:tint="@color/wi_constraint_item" />
 
         <ImageView
             android:id="@+id/imageView_constraint_battery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_battery"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_battery"
+            app:tint="@color/wi_constraint_item" />
 
         <ImageView
             android:id="@+id/imageView_constraint_charging"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_charging"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_charging"
+            app:tint="@color/wi_constraint_item" />
 
         <ImageView
             android:id="@+id/imageView_constraint_idle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_idle"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_idle"
+            app:tint="@color/wi_constraint_item" />
 
         <ImageView
             android:id="@+id/imageView_constraint_storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_constraint_storage"
-            app:tint="@color/constraint_item" />
+            android:src="@drawable/wi_ic_constraint_storage"
+            app:tint="@color/wi_constraint_item" />
 
         <TextView
             android:id="@+id/textView_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/offset_default"
+            android:layout_marginEnd="@dimen/wi_offset_default"
             android:textAppearance="?textAppearanceLabelMedium"
             app:layout_constraintBottom_toBottomOf="@id/flow_constraints"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,12 +112,12 @@
             android:id="@+id/flow_constraints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/offset_default"
-            android:layout_marginTop="@dimen/offset_default"
+            android:layout_marginHorizontal="@dimen/wi_offset_default"
+            android:layout_marginTop="@dimen/wi_offset_default"
             app:constraint_referenced_ids="imageView_constraint_network,imageView_constraint_network_unmetered,imageView_constraint_battery,imageView_constraint_charging,imageView_constraint_idle,imageView_constraint_storage"
             app:flow_firstHorizontalBias="0"
             app:flow_horizontalAlign="start"
-            app:flow_horizontalGap="@dimen/offset_small"
+            app:flow_horizontalGap="@dimen/wi_offset_small"
             app:layout_constraintEnd_toStartOf="@id/textView_time"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"

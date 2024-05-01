@@ -10,12 +10,12 @@ import androidx.core.text.inSpans
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import org.koitharu.workinspector.R
-import org.koitharu.workinspector.databinding.ItemWorkDetailsBinding
+import org.koitharu.workinspector.databinding.WiItemWorkDetailsBinding
 import org.koitharu.workinspector.ui.WorkConstraint
 import org.koitharu.workinspector.ui.util.DurationFormat
 
 internal class WorkDetailsHolder(
-    private val binding: ItemWorkDetailsBinding,
+    private val binding: WiItemWorkDetailsBinding,
 ) : ViewHolder(binding.root) {
     fun onBind(item: WorkDetailsItem) {
         val context = itemView.context
@@ -25,16 +25,16 @@ internal class WorkDetailsHolder(
         binding.textViewStatus.setText(item.stateTitle)
         binding.textViewAttempt.text =
             if (item.periodicInterval == 0L) {
-                context.getString(R.string.attempt_count, item.runAttemptCount)
+                context.getString(R.string.wi_attempt_count, item.runAttemptCount)
             } else {
-                context.getString(R.string.period_count, item.periodCount)
+                context.getString(R.string.wi_period_count, item.periodCount)
             }
         binding.chipsTags.setChips(item.tags)
         binding.scrollViewTags.isGone = item.tags.isEmpty()
 
         binding.textViewDetails.text =
             buildSpannedString {
-                title { appendLine(context.getString(R.string.enqueued_at)) }
+                title { appendLine(context.getString(R.string.wi_enqueued_at)) }
                 append('\t')
                 append(
                     DateUtils.formatDateTime(
@@ -47,7 +47,7 @@ internal class WorkDetailsHolder(
                 append(DateUtils.getRelativeTimeSpanString(item.lastEnqueueTime))
                 append(')').appendLine()
                 if (item.periodicInterval != 0L) {
-                    title { appendLine(context.getString(R.string.repeat_interval)) }
+                    title { appendLine(context.getString(R.string.wi_repeat_interval)) }
                     append('\t').append(
                         DurationFormat(context).format(
                             item.periodicInterval,
@@ -57,18 +57,18 @@ internal class WorkDetailsHolder(
                     appendLine()
                 }
                 if (item.stopReasonText != 0) {
-                    title { appendLine(context.getString(R.string.stop_reason)) }
+                    title { appendLine(context.getString(R.string.wi_stop_reason)) }
                     append('\t').appendLine(context.getString(item.stopReasonText))
                 }
                 if (item.inputData.isNotEmpty()) {
-                    title { appendLine(context.getString(R.string.input_data)) }
+                    title { appendLine(context.getString(R.string.wi_input_data)) }
                     item.inputData.forEach { (k, v) ->
                         append('\t').append(k).append(": ").append(v.toString())
                         appendLine()
                     }
                 }
                 if (item.outputData.isNotEmpty()) {
-                    title { appendLine(context.getString(R.string.output_data)) }
+                    title { appendLine(context.getString(R.string.wi_output_data)) }
                     item.inputData.forEach { (k, v) ->
                         append('\t').append(k).append(": ").append(v.toString())
                         appendLine()

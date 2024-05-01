@@ -4,11 +4,11 @@ import android.text.format.DateUtils
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import org.koitharu.workinspector.R
-import org.koitharu.workinspector.databinding.ItemWorkerBinding
+import org.koitharu.workinspector.databinding.WiItemWorkerBinding
 import org.koitharu.workinspector.ui.WorkConstraint
 
 internal class WorkerViewHolder(
-    private val binding: ItemWorkerBinding,
+    private val binding: WiItemWorkerBinding,
     private val clickListener: OnWorkerClickListener,
 ) : ViewHolder(binding.root), View.OnClickListener {
     private var item: WorkerItem? = null
@@ -27,7 +27,7 @@ internal class WorkerViewHolder(
         binding.textViewName.text = item.name
         binding.imageViewStatus.setImageResource(item.stateIcon)
         binding.imageViewStatus.contentDescription = itemView.context.getString(item.stateTitle)
-        val icon = if (item.isPeriodic) R.drawable.ic_repeat else 0
+        val icon = if (item.isPeriodic) R.drawable.wi_ic_repeat else 0
         binding.textViewName.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
         binding.textViewTime.text = DateUtils.getRelativeTimeSpanString(item.lastEnqueueTime)
 

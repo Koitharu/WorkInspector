@@ -9,7 +9,7 @@ internal fun showErrorDialog(
     error: Throwable,
 ) {
     MaterialAlertDialogBuilder(context)
-        .setTitle(R.string.error_generic)
+        .setTitle(R.string.wi_error_generic)
         .setMessage(error.message)
         .setNegativeButton(android.R.string.ok, null)
         .setCancelable(true)

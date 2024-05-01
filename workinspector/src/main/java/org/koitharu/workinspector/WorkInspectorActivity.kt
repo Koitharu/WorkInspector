@@ -3,14 +3,14 @@ package org.koitharu.workinspector
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import org.koitharu.workinspector.databinding.ActivityWorkInspectorBinding
+import org.koitharu.workinspector.databinding.WiActivityWorkInspectorBinding
 
 public class WorkInspectorActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWorkInspectorBinding
+    private lateinit var binding: WiActivityWorkInspectorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWorkInspectorBinding.inflate(layoutInflater)
+        binding = WiActivityWorkInspectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

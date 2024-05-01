@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="offset_tiny">2dp</dimen>
-    <dimen name="offset_mini">4dp</dimen>
-    <dimen name="offset_small">6dp</dimen>
-    <dimen name="offset_smaller">8dp</dimen>
-    <dimen name="offset_default">12dp</dimen>
-    <dimen name="offset_larger">16dp</dimen>
-    <dimen name="offset_large">24dp</dimen>
+    <dimen name="wi_offset_tiny">2dp</dimen>
+    <dimen name="wi_offset_mini">4dp</dimen>
+    <dimen name="wi_offset_small">6dp</dimen>
+    <dimen name="wi_offset_smaller">8dp</dimen>
+    <dimen name="wi_offset_default">12dp</dimen>
+    <dimen name="wi_offset_larger">16dp</dimen>
+    <dimen name="wi_offset_large">24dp</dimen>
 </resources>

@@ -69,7 +69,7 @@ internal fun WorkDetails.toWorkDetailsItem() =
             ),
         tags =
             tags.filterNot { it == className }
-                .map { ChipsView.ChipModel(title = it, icon = R.drawable.ic_tag) },
+                .map { ChipsView.ChipModel(title = it, icon = R.drawable.wi_ic_tag) },
         inputData = input.keyValueMap,
         outputData = output.keyValueMap,
         lastEnqueueTime = lastEnqueueTime,
@@ -82,26 +82,26 @@ internal fun WorkDetails.toWorkDetailsItem() =
 private val WorkInfo.State?.iconResId: Int
     get() =
         when (this) {
-            WorkInfo.State.ENQUEUED -> R.drawable.ic_state_queued
-            WorkInfo.State.RUNNING -> R.drawable.ic_state_running
-            WorkInfo.State.SUCCEEDED -> R.drawable.ic_state_succeeded
-            WorkInfo.State.FAILED -> R.drawable.ic_state_failed
-            WorkInfo.State.BLOCKED -> R.drawable.ic_state_blocked
-            WorkInfo.State.CANCELLED -> R.drawable.ic_state_cancelled
-            else -> R.drawable.ic_state_unknown
+            WorkInfo.State.ENQUEUED -> R.drawable.wi_ic_state_queued
+            WorkInfo.State.RUNNING -> R.drawable.wi_ic_state_running
+            WorkInfo.State.SUCCEEDED -> R.drawable.wi_ic_state_succeeded
+            WorkInfo.State.FAILED -> R.drawable.wi_ic_state_failed
+            WorkInfo.State.BLOCKED -> R.drawable.wi_ic_state_blocked
+            WorkInfo.State.CANCELLED -> R.drawable.wi_ic_state_cancelled
+            else -> R.drawable.wi_ic_state_unknown
         }
 
 @get:StringRes
 private val WorkInfo.State?.titleResId: Int
     get() =
         when (this) {
-            WorkInfo.State.ENQUEUED -> R.string.state_queued
-            WorkInfo.State.RUNNING -> R.string.state_running
-            WorkInfo.State.SUCCEEDED -> R.string.state_succeeded
-            WorkInfo.State.FAILED -> R.string.state_failed
-            WorkInfo.State.BLOCKED -> R.string.state_blocked
-            WorkInfo.State.CANCELLED -> R.string.state_cancelled
-            else -> R.string.state_unknown
+            WorkInfo.State.ENQUEUED -> R.string.wi_state_queued
+            WorkInfo.State.RUNNING -> R.string.wi_state_running
+            WorkInfo.State.SUCCEEDED -> R.string.wi_state_succeeded
+            WorkInfo.State.FAILED -> R.string.wi_state_failed
+            WorkInfo.State.BLOCKED -> R.string.wi_state_blocked
+            WorkInfo.State.CANCELLED -> R.string.wi_state_cancelled
+            else -> R.string.wi_state_unknown
         }
 
 private fun constraintsSet(
@@ -137,21 +137,21 @@ private fun constraintsSet(
 private fun mapStopReason(reason: Int): Int =
     when (reason) {
         STOP_REASON_NOT_STOPPED -> 0
-        STOP_REASON_UNKNOWN -> R.string.stop_reason_unknown
-        STOP_REASON_CANCELLED_BY_APP -> R.string.stop_reason_cancelled_by_app
-        STOP_REASON_PREEMPT -> R.string.stop_reason_preempt
-        STOP_REASON_TIMEOUT -> R.string.stop_reason_timeout
-        STOP_REASON_DEVICE_STATE -> R.string.stop_reason_device_state
-        STOP_REASON_CONSTRAINT_BATTERY_NOT_LOW -> R.string.stop_reason_constraint_battery_not_low
-        STOP_REASON_CONSTRAINT_CHARGING -> R.string.stop_reason_constraint_charging
-        STOP_REASON_CONSTRAINT_CONNECTIVITY -> R.string.stop_reason_constraint_connectivity
-        STOP_REASON_CONSTRAINT_DEVICE_IDLE -> R.string.stop_reason_constraint_device_idle
-        STOP_REASON_CONSTRAINT_STORAGE_NOT_LOW -> R.string.stop_reason_constraint_storage_not_low
-        STOP_REASON_QUOTA -> R.string.stop_reason_quota
-        STOP_REASON_BACKGROUND_RESTRICTION -> R.string.stop_reason_background_restriction
-        STOP_REASON_APP_STANDBY -> R.string.stop_reason_app_standby
-        STOP_REASON_USER -> R.string.stop_reason_user
-        STOP_REASON_SYSTEM_PROCESSING -> R.string.stop_reason_system_processing
-        STOP_REASON_ESTIMATED_APP_LAUNCH_TIME_CHANGED -> R.string.stop_reason_estimated_app_launch_time_changed
+        STOP_REASON_UNKNOWN -> R.string.wi_stop_reason_unknown
+        STOP_REASON_CANCELLED_BY_APP -> R.string.wi_stop_reason_cancelled_by_app
+        STOP_REASON_PREEMPT -> R.string.wi_stop_reason_preempt
+        STOP_REASON_TIMEOUT -> R.string.wi_stop_reason_timeout
+        STOP_REASON_DEVICE_STATE -> R.string.wi_stop_reason_device_state
+        STOP_REASON_CONSTRAINT_BATTERY_NOT_LOW -> R.string.wi_stop_reason_constraint_battery_not_low
+        STOP_REASON_CONSTRAINT_CHARGING -> R.string.wi_stop_reason_constraint_charging
+        STOP_REASON_CONSTRAINT_CONNECTIVITY -> R.string.wi_stop_reason_constraint_connectivity
+        STOP_REASON_CONSTRAINT_DEVICE_IDLE -> R.string.wi_stop_reason_constraint_device_idle
+        STOP_REASON_CONSTRAINT_STORAGE_NOT_LOW -> R.string.wi_stop_reason_constraint_storage_not_low
+        STOP_REASON_QUOTA -> R.string.wi_stop_reason_quota
+        STOP_REASON_BACKGROUND_RESTRICTION -> R.string.wi_stop_reason_background_restriction
+        STOP_REASON_APP_STANDBY -> R.string.wi_stop_reason_app_standby
+        STOP_REASON_USER -> R.string.wi_stop_reason_user
+        STOP_REASON_SYSTEM_PROCESSING -> R.string.wi_stop_reason_system_processing
+        STOP_REASON_ESTIMATED_APP_LAUNCH_TIME_CHANGED -> R.string.wi_stop_reason_estimated_app_launch_time_changed
         else -> 0
     }

@@ -8,14 +8,14 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koitharu.workinspector.R
-import org.koitharu.workinspector.databinding.FragmentWorkListBinding
+import org.koitharu.workinspector.databinding.WiFragmentWorkListBinding
 import org.koitharu.workinspector.ui.details.WorkDetailsFragment
 import org.koitharu.workinspector.ui.util.collectInLifecycle
 import org.koitharu.workinspector.ui.util.showErrorDialog
 
-internal class WorkersListFragment : Fragment(R.layout.fragment_work_list), OnWorkerClickListener {
+internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list), OnWorkerClickListener {
     private val viewModel by viewModel<WorkersListViewModel>()
-    private var binding: FragmentWorkListBinding? = null
+    private var binding: WiFragmentWorkListBinding? = null
 
     override fun onViewCreated(
         view: View,
@@ -24,7 +24,7 @@ internal class WorkersListFragment : Fragment(R.layout.fragment_work_list), OnWo
         super.onViewCreated(view, savedInstanceState)
         val listAdapter = WorkersAdapter(this)
         binding =
-            FragmentWorkListBinding.bind(view).apply {
+            WiFragmentWorkListBinding.bind(view).apply {
                 recyclerView.setHasFixedSize(true)
                 recyclerView.adapter = listAdapter
             }
@@ -44,7 +44,7 @@ internal class WorkersListFragment : Fragment(R.layout.fragment_work_list), OnWo
 
     override fun onResume() {
         super.onResume()
-        activity?.setTitle(R.string.lib_name)
+        activity?.setTitle(R.string.wi_lib_name)
     }
 
     override fun onWorkerClick(

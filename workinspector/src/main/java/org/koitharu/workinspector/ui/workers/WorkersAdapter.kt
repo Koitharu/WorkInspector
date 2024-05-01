@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import kotlinx.coroutines.flow.FlowCollector
-import org.koitharu.workinspector.databinding.ItemWorkerBinding
+import org.koitharu.workinspector.databinding.WiItemWorkerBinding
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -22,7 +22,7 @@ internal class WorkersAdapter(
         parent: ViewGroup,
         viewType: Int,
     ) = WorkerViewHolder(
-        ItemWorkerBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+        WiItemWorkerBinding.inflate(LayoutInflater.from(parent.context), parent, false),
         clickListener,
     )
 

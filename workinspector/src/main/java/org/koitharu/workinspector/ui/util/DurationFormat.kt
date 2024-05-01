@@ -75,11 +75,11 @@ internal class DurationFormat(private val context: Context) {
     ): String {
         val plural =
             when (unit) {
-                Unit.DAY -> R.plurals.days
-                Unit.HOUR -> R.plurals.hours
-                Unit.MINUTE -> R.plurals.minutes
-                Unit.SECOND -> R.plurals.seconds
-                Unit.MILLISECOND -> R.plurals.millis
+                Unit.DAY -> R.plurals.wi_days
+                Unit.HOUR -> R.plurals.wi_hours
+                Unit.MINUTE -> R.plurals.wi_minutes
+                Unit.SECOND -> R.plurals.wi_seconds
+                Unit.MILLISECOND -> R.plurals.wi_millis
             }
         return context.resources.getQuantityString(
             plural,
