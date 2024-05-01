@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koitharu.workinspector.R
 import org.koitharu.workinspector.databinding.FragmentWorkListBinding
 import org.koitharu.workinspector.ui.util.collectInLifecycle
+import org.koitharu.workinspector.ui.util.showErrorDialog
 
 internal class WorkDetailsFragment : Fragment(R.layout.fragment_work_list) {
     private val viewModel by viewModel<WorkDetailsViewModel>()
@@ -30,11 +30,7 @@ internal class WorkDetailsFragment : Fragment(R.layout.fragment_work_list) {
             binding?.textViewHolder?.isVisible = it.isEmpty()
         }
         viewModel.onError.collectInLifecycle(viewLifecycleOwner) { e ->
-            Snackbar.make(
-                requireView(),
-                e.message ?: getString(R.string.error_generic),
-                Snackbar.LENGTH_SHORT,
-            ).show()
+            showErrorDialog(requireContext(), e)
         }
     }
 

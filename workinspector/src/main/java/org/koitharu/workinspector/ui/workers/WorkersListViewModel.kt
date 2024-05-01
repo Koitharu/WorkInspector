@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.plus
 import org.koin.android.annotation.KoinViewModel
 import org.koitharu.workinspector.data.workers.WorkersRepository
+import org.koitharu.workinspector.ui.util.mapItems
+import org.koitharu.workinspector.ui.util.toWorkerItem
 
 @KoinViewModel
 internal class WorkersListViewModel(
@@ -18,6 +20,7 @@ internal class WorkersListViewModel(
     val onError = MutableSharedFlow<Throwable>()
     val workers =
         repository.observeWorkers()
+            .mapItems { it.toWorkerItem() }
             .catch { e ->
                 onError.emit(e)
             }.stateIn(

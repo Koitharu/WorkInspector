@@ -11,7 +11,7 @@ internal data class WorkDetails(
     val output: Data,
     val initialDelay: Long,
     val intervalDuration: Long,
-    val flexDuration: Long,
+    val periodCount: Int,
     val runAttemptCount: Int,
     val lastEnqueueTime: Long,
     val scheduleRequestedAt: Long,
@@ -22,4 +22,5 @@ internal data class WorkDetails(
     val requiresDeviceIdle: Boolean,
     val requiresStorageNotLow: Boolean,
     val tags: Set<String>,
+    val className: String,
 )

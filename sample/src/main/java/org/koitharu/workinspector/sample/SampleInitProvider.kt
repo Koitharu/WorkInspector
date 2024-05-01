@@ -27,6 +27,8 @@ class SampleInitProvider : ContentProvider() {
                     Constraints.Builder().setRequiresCharging(true).setRequiresStorageNotLow(true)
                         .build(),
                 )
+                .addTag("TAG1")
+                .addTag("Tag2_sample")
                 .keepResultsForAtLeast(20, TimeUnit.DAYS)
                 .build()
         workManager.enqueueUniquePeriodicWork(

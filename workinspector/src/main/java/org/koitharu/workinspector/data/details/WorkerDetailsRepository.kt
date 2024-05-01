@@ -22,7 +22,12 @@ internal class WorkerDetailsRepository(
     suspend fun getWorkDetails(workerClassName: String): List<WorkDetails> =
         db.withTransaction {
             db.openHelper.readableDatabase.query(
-                "SELECT id, state, input, output, initial_delay, interval_duration, flex_duration, run_attempt_count, last_enqueue_time, schedule_requested_at, stop_reason, required_network_type, requires_battery_not_low, requires_charging, requires_device_idle, requires_storage_not_low, (SELECT GROUP_CONCAT(tag) FROM $WORK_TAG WHERE work_spec_id = id) AS tags FROM $WORK_SPEC WHERE worker_class_name = ? ORDER BY last_enqueue_time DESC",
+                "SELECT id, state, input, output, initial_delay, interval_duration, period_count, " +
+                    "run_attempt_count, last_enqueue_time, schedule_requested_at, stop_reason, " +
+                    "required_network_type, requires_battery_not_low, requires_charging, " +
+                    "requires_device_idle, requires_storage_not_low, (SELECT GROUP_CONCAT(tag) " +
+                    "FROM $WORK_TAG WHERE work_spec_id = id) AS tags, worker_class_name " +
+                    "FROM $WORK_SPEC WHERE worker_class_name = ? ORDER BY last_enqueue_time DESC",
                 arrayOf(workerClassName),
             ).mapAndClose { cursor ->
                 WorkDetails(
@@ -32,7 +37,7 @@ internal class WorkerDetailsRepository(
                     output = Data.fromByteArray(cursor.getBlob(3)),
                     initialDelay = cursor.getLong(4),
                     intervalDuration = cursor.getLong(5),
-                    flexDuration = cursor.getLong(6),
+                    periodCount = cursor.getInt(6),
                     runAttemptCount = cursor.getInt(7),
                     lastEnqueueTime = cursor.getLong(8),
                     scheduleRequestedAt = cursor.getLong(9),
@@ -43,6 +48,7 @@ internal class WorkerDetailsRepository(
                     requiresDeviceIdle = cursor.getBoolean(14),
                     requiresStorageNotLow = cursor.getBoolean(15),
                     tags = cursor.getString(16).split(',').toSet(),
+                    className = cursor.getString(17),
                 )
             }
         }

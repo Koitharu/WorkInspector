@@ -55,18 +55,73 @@
             app:layout_constraintTop_toBottomOf="@id/textView_name"
             tools:text="org.koitharu.kotatsu.suggestions.ui.SuggestionsWorker" />
 
+        <ImageView
+            android:id="@+id/imageView_constraint_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_network"
+            app:tint="@color/constraint_item" />
+
+        <ImageView
+            android:id="@+id/imageView_constraint_network_unmetered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_network_unmetered"
+            app:tint="@color/constraint_item" />
+
+        <ImageView
+            android:id="@+id/imageView_constraint_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_battery"
+            app:tint="@color/constraint_item" />
+
+        <ImageView
+            android:id="@+id/imageView_constraint_charging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_charging"
+            app:tint="@color/constraint_item" />
+
+        <ImageView
+            android:id="@+id/imageView_constraint_idle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_idle"
+            app:tint="@color/constraint_item" />
+
+        <ImageView
+            android:id="@+id/imageView_constraint_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_constraint_storage"
+            app:tint="@color/constraint_item" />
+
         <TextView
-            android:id="@+id/textView_id"
-            android:layout_width="0dp"
+            android:id="@+id/textView_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/offset_default"
+            android:textAppearance="?textAppearanceLabelMedium"
+            app:layout_constraintBottom_toBottomOf="@id/flow_constraints"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/flow_constraints"
+            tools:text="20.04.2021" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_constraints"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/offset_default"
             android:layout_marginTop="@dimen/offset_default"
-            android:singleLine="true"
-            android:textAppearance="?textAppearanceOverline"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:constraint_referenced_ids="imageView_constraint_network,imageView_constraint_network_unmetered,imageView_constraint_battery,imageView_constraint_charging,imageView_constraint_idle,imageView_constraint_storage"
+            app:flow_firstHorizontalBias="0"
+            app:flow_horizontalAlign="start"
+            app:flow_horizontalGap="@dimen/offset_small"
+            app:layout_constraintEnd_toStartOf="@id/textView_time"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_class"
-            tools:text="8da23b3f-f4c9-4b36-aacf-1effe9011fe9" />
+            app:layout_constraintTop_toBottomOf="@id/textView_class" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import kotlinx.coroutines.flow.FlowCollector
-import org.koitharu.workinspector.data.workers.model.WorkerInfo
 import org.koitharu.workinspector.databinding.ItemWorkerBinding
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 internal class WorkersAdapter(
     private val clickListener: OnWorkerClickListener,
-) : ListAdapter<WorkerInfo, WorkerViewHolder>(WorkerItemCallback()),
-    FlowCollector<List<WorkerInfo>> {
-    override suspend fun emit(value: List<WorkerInfo>) {
+) : ListAdapter<WorkerItem, WorkerViewHolder>(WorkerItemCallback()),
+    FlowCollector<List<WorkerItem>> {
+    override suspend fun emit(value: List<WorkerItem>) {
         suspendCoroutine { cont ->
             submitList(value) { cont.resume(Unit) }
         }

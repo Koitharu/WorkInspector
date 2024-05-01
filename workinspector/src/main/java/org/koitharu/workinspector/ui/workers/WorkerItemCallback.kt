@@ -1,16 +1,15 @@
 package org.koitharu.workinspector.ui.workers
 
 import androidx.recyclerview.widget.DiffUtil
-import org.koitharu.workinspector.data.workers.model.WorkerInfo
 
-internal class WorkerItemCallback : DiffUtil.ItemCallback<WorkerInfo>() {
+internal class WorkerItemCallback : DiffUtil.ItemCallback<WorkerItem>() {
     override fun areItemsTheSame(
-        oldItem: WorkerInfo,
-        newItem: WorkerInfo,
-    ): Boolean = oldItem.workerClassName == newItem.workerClassName
+        oldItem: WorkerItem,
+        newItem: WorkerItem,
+    ): Boolean = oldItem.className == newItem.className
 
     override fun areContentsTheSame(
-        oldItem: WorkerInfo,
-        newItem: WorkerInfo,
+        oldItem: WorkerItem,
+        newItem: WorkerItem,
     ): Boolean = oldItem == newItem
 }

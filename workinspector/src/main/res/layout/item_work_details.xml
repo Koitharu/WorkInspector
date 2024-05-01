@@ -51,6 +51,18 @@
             app:layout_constraintTop_toBottomOf="@id/textView_status"
             tools:text="Attempt: 4" />
 
+        <TextView
+            android:id="@+id/textView_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/offset_default"
+            android:layout_marginTop="@dimen/offset_smaller"
+            android:textAppearance="?textAppearanceBodySmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_attempt"
+            tools:text="@tools:sample/lorem[20]" />
+
         <ImageView
             android:id="@+id/imageView_constraint_network"
             android:layout_width="wrap_content"
@@ -98,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/offset_default"
-            android:layout_marginTop="@dimen/offset_smaller"
+            android:layout_marginTop="@dimen/offset_mini"
             app:constraint_referenced_ids="imageView_constraint_network,imageView_constraint_network_unmetered,imageView_constraint_battery,imageView_constraint_charging,imageView_constraint_idle,imageView_constraint_storage"
             app:flow_firstHorizontalBias="0"
             app:flow_horizontalAlign="start"
@@ -106,7 +118,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView_attempt" />
+            app:layout_constraintTop_toBottomOf="@id/textView_details" />
+
+        <HorizontalScrollView
+            android:id="@+id/scrollView_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/offset_default"
+            android:clipToPadding="false"
+            android:paddingHorizontal="@dimen/offset_default"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flow_constraints">
+
+            <org.koitharu.kotatsu.core.ui.widgets.ChipsView
+                android:id="@+id/chips_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/textView_id"
@@ -118,7 +149,7 @@
             android:textAppearance="?textAppearanceOverline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/flow_constraints"
+            app:layout_constraintTop_toBottomOf="@id/scrollView_tags"
             tools:text="8da23b3f-f4c9-4b36-aacf-1effe9011fe9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

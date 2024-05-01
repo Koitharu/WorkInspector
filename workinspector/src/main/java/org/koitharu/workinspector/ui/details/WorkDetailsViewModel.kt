@@ -12,6 +12,8 @@ import kotlinx.coroutines.plus
 import org.koin.android.annotation.KoinViewModel
 import org.koitharu.workinspector.data.details.WorkerDetailsRepository
 import org.koitharu.workinspector.ui.details.WorkDetailsFragment.Companion.ARG_WORKER_CLASS_NAME
+import org.koitharu.workinspector.ui.util.mapItems
+import org.koitharu.workinspector.ui.util.toWorkDetailsItem
 
 @KoinViewModel
 internal class WorkDetailsViewModel(
@@ -22,6 +24,7 @@ internal class WorkDetailsViewModel(
     val onError = MutableSharedFlow<Throwable>()
     val workers =
         repository.observeWorkDetails(workerClassName)
+            .mapItems { it.toWorkDetailsItem() }
             .catch { e ->
                 onError.emit(e)
             }.stateIn(
