@@ -19,20 +19,31 @@ internal class WorkersRepository(
 ) {
     suspend fun getWorkers(): List<WorkerInfo> =
         db.withTransaction {
-            db.openHelper.readableDatabase.query(
-                "SELECT state, worker_class_name, interval_duration, required_network_type, requires_battery_not_low, requires_charging, requires_device_idle, requires_storage_not_low, last_enqueue_time FROM $WORK_SPEC GROUP BY worker_class_name ORDER BY last_enqueue_time DESC",
-            ).mapAndClose { cursor ->
-                WorkerInfo(
-                    state = WorkInfo.State.entries.getOrNull(cursor.getInt(0)),
-                    workerClassName = cursor.getString(1),
-                    isPeriodic = cursor.getInt(2) != 0,
-                    requiredNetworkType = NetworkType.entries.getOrNull(cursor.getInt(3)),
-                    requiresBatteryNotLow = cursor.getBoolean(4),
-                    requiresCharging = cursor.getBoolean(5),
-                    requiresDeviceIdle = cursor.getBoolean(6),
-                    requiresStorageNotLow = cursor.getBoolean(7),
-                    lastEnqueueTime = cursor.getLong(8),
-                )
+            val workers =
+                db.openHelper.readableDatabase.query(
+                    "SELECT DISTINCT worker_class_name FROM WorkSpec ORDER BY last_enqueue_time",
+                ).mapAndClose { it.getString(0) }
+            workers.map { className ->
+                db.openHelper.readableDatabase.query(
+                    "SELECT state, interval_duration, required_network_type, " +
+                        "requires_battery_not_low, requires_charging, requires_device_idle, " +
+                        "requires_storage_not_low, last_enqueue_time FROM $WORK_SPEC " +
+                        "WHERE worker_class_name = ? ORDER BY last_enqueue_time DESC LIMIT 1",
+                    arrayOf(className),
+                ).use { cursor ->
+                    cursor.moveToFirst()
+                    WorkerInfo(
+                        state = WorkInfo.State.entries.getOrNull(cursor.getInt(0)),
+                        workerClassName = className,
+                        isPeriodic = cursor.getInt(1) != 0,
+                        requiredNetworkType = NetworkType.entries.getOrNull(cursor.getInt(2)),
+                        requiresBatteryNotLow = cursor.getBoolean(3),
+                        requiresCharging = cursor.getBoolean(4),
+                        requiresDeviceIdle = cursor.getBoolean(5),
+                        requiresStorageNotLow = cursor.getBoolean(6),
+                        lastEnqueueTime = cursor.getLong(7),
+                    )
+                }
             }
         }
 
