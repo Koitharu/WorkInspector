@@ -9,6 +9,21 @@
             android:label="@string/wi_lib_name"
             android:theme="@style/Theme.WorkInspector" />
 
+        <activity-alias
+            android:name="${applicationId}.WorkInspectorLauncherActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/wi_ic_launcher"
+            android:roundIcon="@mipmap/wi_ic_launcher_round"
+            android:targetActivity=".WorkInspectorActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
         <provider
             android:name=".WorkInspectorInitProvider"
             android:authorities="${applicationId}.WORKINSPECTOR_INIT"

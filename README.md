@@ -32,15 +32,20 @@ Library to inspect the Android WorkManager jobs. Like an App inspector, but on a
 
    Versions are available on [JitPack](https://jitpack.io/#koitharu/workinspector)
 
-3. Usage in code
+3. Usage
+
+   The WorkInspector will be available via the launcher icon.
+
+   Alternatively, you can disable the launcher icon and open it programmatically:
 
    ```kotlin
+   // disable the launcher icon
+   WorkInspector.setLauncherIconEnabled(context, false)
+
+   // start activity
    context.startActivity(WorkInspector.getIntent(context))
-   ```
 
-   or alternatively for the debug-only implementation
-
-   ```kotlin
+   // or alternatively, for the debug-only implementation
    if (BuildConfig.DEBUG) {
      val intent = Intent()
      intent.component = ComponentName(context, "org.koitharu.workinspector.WorkInspectorActivity")
