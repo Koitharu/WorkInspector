@@ -38,10 +38,11 @@ Library to inspect the Android WorkManager jobs. Like an App inspector, but on a
 
    Alternatively, you can disable the launcher icon and open it programmatically:
 
-   ```kotlin
-   // disable the launcher icon
-   WorkInspector.setLauncherIconEnabled(context, false)
+   ```xml
+   <bool name="wi_launcher_icon_enabled" tools:node="replace">false</bool>
+   ```
 
+   ```kotlin
    // start activity
    context.startActivity(WorkInspector.getIntent(context))
 
