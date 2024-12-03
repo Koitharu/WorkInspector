@@ -20,3 +20,7 @@ local.properties
 /.idea/deploymentTargetSelector.xml
 /.idea/ktlint-plugin.xml
 /.idea/vcs.xml
+/.idea/codeStyles
+/.idea/kotlinc.xml
+/.idea/runConfigurations.xml
+/.idea/gradle.xml

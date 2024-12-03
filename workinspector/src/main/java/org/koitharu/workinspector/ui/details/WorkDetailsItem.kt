@@ -16,6 +16,6 @@ internal data class WorkDetailsItem(
     val lastEnqueueTime: Long,
     val periodicInterval: Long,
     @StringRes val stopReasonText: Int,
-    val inputData: Map<String, Any>,
-    val outputData: Map<String, Any>,
+    val inputData: Map<String, Any?>,
+    val outputData: Map<String, Any?>,
 )

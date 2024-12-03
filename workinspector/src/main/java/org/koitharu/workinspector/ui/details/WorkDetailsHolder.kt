@@ -13,6 +13,7 @@ import org.koitharu.workinspector.R
 import org.koitharu.workinspector.databinding.WiItemWorkDetailsBinding
 import org.koitharu.workinspector.ui.WorkConstraint
 import org.koitharu.workinspector.ui.util.DurationFormat
+import org.koitharu.workinspector.ui.util.appendNullable
 
 internal class WorkDetailsHolder(
     private val binding: WiItemWorkDetailsBinding,
@@ -63,14 +64,14 @@ internal class WorkDetailsHolder(
                 if (item.inputData.isNotEmpty()) {
                     title { appendLine(context.getString(R.string.wi_input_data)) }
                     item.inputData.forEach { (k, v) ->
-                        append('\t').append(k).append(": ").append(v.toString())
+                        append('\t').append(k).append(": ").appendNullable(v)
                         appendLine()
                     }
                 }
                 if (item.outputData.isNotEmpty()) {
                     title { appendLine(context.getString(R.string.wi_output_data)) }
                     item.inputData.forEach { (k, v) ->
-                        append('\t').append(k).append(": ").append(v.toString())
+                        append('\t').append(k).append(": ").appendNullable(v)
                         appendLine()
                     }
                 }
