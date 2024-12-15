@@ -7,13 +7,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koitharu.workinspector.IsolatedKoinComponent
 import org.koitharu.workinspector.R
 import org.koitharu.workinspector.databinding.WiFragmentWorkListBinding
 import org.koitharu.workinspector.ui.details.WorkDetailsFragment
 import org.koitharu.workinspector.ui.util.collectInLifecycle
 import org.koitharu.workinspector.ui.util.showErrorDialog
 
-internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list), OnWorkerClickListener {
+internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list),
+    IsolatedKoinComponent,
+    OnWorkerClickListener {
+
     private val viewModel by viewModel<WorkersListViewModel>()
     private var binding: WiFragmentWorkListBinding? = null
 

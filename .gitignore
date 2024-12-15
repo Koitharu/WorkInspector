@@ -24,3 +24,4 @@ local.properties
 /.idea/kotlinc.xml
 /.idea/runConfigurations.xml
 /.idea/gradle.xml
+/.idea/AndroidProjectSystem.xml

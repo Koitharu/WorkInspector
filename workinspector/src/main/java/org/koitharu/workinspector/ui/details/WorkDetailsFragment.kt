@@ -5,12 +5,15 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koitharu.workinspector.IsolatedKoinComponent
 import org.koitharu.workinspector.R
 import org.koitharu.workinspector.databinding.WiFragmentWorkListBinding
 import org.koitharu.workinspector.ui.util.collectInLifecycle
 import org.koitharu.workinspector.ui.util.showErrorDialog
 
-internal class WorkDetailsFragment : Fragment(R.layout.wi_fragment_work_list) {
+internal class WorkDetailsFragment : Fragment(R.layout.wi_fragment_work_list),
+    IsolatedKoinComponent {
+
     private val viewModel by viewModel<WorkDetailsViewModel>()
     private var binding: WiFragmentWorkListBinding? = null
 

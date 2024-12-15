@@ -8,13 +8,15 @@ import androidx.work.impl.WorkDatabase
 import androidx.work.impl.WorkManagerImpl
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
+import org.koin.core.KoinApplication
+import org.koin.dsl.koinApplication
 import org.koin.dsl.module
-import org.koin.ksp.generated.*
+import org.koin.ksp.generated.module
 
 public class WorkInspectorInitProvider : ContentProvider() {
+
     override fun onCreate(): Boolean {
-        startKoin {
+        koinApp = koinApplication {
             androidLogger()
             androidContext(checkNotNull(context))
             modules(coreModule(), LibModule().module)
@@ -55,4 +57,12 @@ public class WorkInspectorInitProvider : ContentProvider() {
             factory<WorkManagerImpl> { WorkManagerImpl.getInstance(androidContext()) }
             factory<WorkDatabase> { get<WorkManagerImpl>().workDatabase }
         }
+
+    internal companion object {
+
+        lateinit var koinApp: KoinApplication
+            private set
+
+        val koin get() = koinApp.koin
+    }
 }
