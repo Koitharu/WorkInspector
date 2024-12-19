@@ -2,7 +2,11 @@ package org.koitharu.workinspector.ui.workers
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
@@ -16,7 +20,8 @@ import org.koitharu.workinspector.ui.util.showErrorDialog
 
 internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list),
     IsolatedKoinComponent,
-    OnWorkerClickListener {
+    OnWorkerClickListener,
+    OnApplyWindowInsetsListener {
 
     private val viewModel by viewModel<WorkersListViewModel>()
     private var binding: WiFragmentWorkListBinding? = null
@@ -27,11 +32,11 @@ internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list),
     ) {
         super.onViewCreated(view, savedInstanceState)
         val listAdapter = WorkersAdapter(this)
-        binding =
-            WiFragmentWorkListBinding.bind(view).apply {
-                recyclerView.setHasFixedSize(true)
-                recyclerView.adapter = listAdapter
-            }
+        binding = WiFragmentWorkListBinding.bind(view).apply {
+            ViewCompat.setOnApplyWindowInsetsListener(root, this@WorkersListFragment)
+            recyclerView.setHasFixedSize(true)
+            recyclerView.adapter = listAdapter
+        }
         viewModel.workers.collectInLifecycle(viewLifecycleOwner) {
             listAdapter.submitList(it)
             binding?.textViewHolder?.isVisible = it.isEmpty()
@@ -39,6 +44,21 @@ internal class WorkersListFragment : Fragment(R.layout.wi_fragment_work_list),
         viewModel.onError.collectInLifecycle(viewLifecycleOwner) { e ->
             showErrorDialog(requireContext(), e)
         }
+    }
+
+    override fun onApplyWindowInsets(
+        v: View,
+        insets: WindowInsetsCompat,
+    ): WindowInsetsCompat {
+        binding?.recyclerView?.run {
+            val systemBarsInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            updatePadding(
+                left = systemBarsInsets.left,
+                right = systemBarsInsets.right,
+                bottom = systemBarsInsets.bottom + paddingTop,
+            )
+        }
+        return WindowInsetsCompat.CONSUMED
     }
 
     override fun onDestroyView() {
